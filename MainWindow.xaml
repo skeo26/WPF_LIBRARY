@@ -1,0 +1,61 @@
+﻿<Window x:Class="Library_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="834">
+
+    <Window.Resources>
+        <Style x:Key="CustomDataGridStyle" TargetType="DataGrid">
+            <Setter Property="Background" Value="#F0F0F0"/>
+            <Setter Property="BorderBrush" Value="#D0D0D0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowBackground" Value="#E0E0E0"/>
+            <Setter Property="AlternatingRowBackground" Value="#D0D0D0"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#CCCCCC"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#CCCCCC"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+        </Style>
+        <Style x:Key="CustomDataGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#4CAF50"/>
+            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Поиск:" Margin="5"/>
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="110" Margin="5"/>
+            <Button Content="Добавить новую книгу" Margin="5" Click="Add" Background="LightSkyBlue"/>
+            <Button Content="Изменить информацию о книге" Margin="5" Command="{Binding EditBookCommand}" Background="LightSkyBlue"/>
+            <Button Content="Удалить книгу" Margin="5" Command="{Binding DeleteBookCommand}" Background="LightSkyBlue" Height="21" Width="86"/>
+            <Button Content="Сохранить в JSON" Click="SaveToJson_Click" Margin="5" Background="LightSkyBlue" />
+            <Button Content="Сохранить в XML" Click="SaveToXml_Click" Margin="5" Background="LightSkyBlue"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Margin="0,24,0,0" ItemsSource="{Binding Items}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Style="{StaticResource CustomDataGridStyle}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Автор" Binding="{Binding Author}"/>
+                <DataGridTextColumn Header="Жанр" Binding="{Binding Genre}"/>
+                <DataGridTextColumn Header="Год" Binding="{Binding Year}"/>
+            </DataGrid.Columns>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource CustomDataGridHeaderStyle}" />
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+    </Grid>
+</Window>

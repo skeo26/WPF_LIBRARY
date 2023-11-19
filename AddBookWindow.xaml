@@ -1,0 +1,24 @@
+﻿<!-- AddBookWindow.xaml -->
+<Window x:Class="Library_WPF.AddBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add New Book" Height="300" Width="400">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Название:"/>
+            <TextBox x:Name="TitleTextBox" Width="200" Margin="5"/>
+
+            <TextBlock Text="Автор:"/>
+            <TextBox x:Name="AuthorTextBox" Width="200" Margin="5"/>
+
+            <TextBlock Text="Жанр:"/>
+            <TextBox x:Name="GenreTextBox" Width="200" Margin="5"/>
+
+            <TextBlock Text="Год:"/>
+            <TextBox x:Name="YearTextBox" Width="200" Margin="5"/>
+            
+
+            <Button Content="Добавить" Click="AddButton_Click" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

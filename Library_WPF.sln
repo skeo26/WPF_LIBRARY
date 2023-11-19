@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_WPF", "Library_WPF.csproj", "{C3C10D67-1725-4F2A-B8D6-7FA8CED615B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3C10D67-1725-4F2A-B8D6-7FA8CED615B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C10D67-1725-4F2A-B8D6-7FA8CED615B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C10D67-1725-4F2A-B8D6-7FA8CED615B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C10D67-1725-4F2A-B8D6-7FA8CED615B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94D06F62-188D-4FE1-AD49-417CFED8E2D2}
+	EndGlobalSection
+EndGlobal
