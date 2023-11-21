@@ -40,10 +40,10 @@ namespace Library_WPF
                 return;
             Book newBook = new Book
             {
-                Title = TitleTextBox.Text,
-                Author = AuthorTextBox.Text,
-                Genre = GenreTextBox.Text,
-                Year = int.Parse(YearTextBox.Text)
+                title = TitleTextBox.Text,
+                author = AuthorTextBox.Text,
+                genre = GenreTextBox.Text,
+                year = int.Parse(YearTextBox.Text)
             };
 
             var viewModel = (BooksViewModel)Owner.DataContext;

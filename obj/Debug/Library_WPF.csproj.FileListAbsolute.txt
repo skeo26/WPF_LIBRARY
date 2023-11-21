@@ -21,3 +21,8 @@ C:\Users\samua\source\repos\Library_WPF\obj\Debug\EditBookWindow.g.cs
 C:\Users\samua\source\repos\Library_WPF\bin\Debug\Newtonsoft.Json.dll
 C:\Users\samua\source\repos\Library_WPF\bin\Debug\Newtonsoft.Json.xml
 C:\Users\samua\source\repos\Library_WPF\obj\Debug\Library_WPF.csproj.CopyComplete
+C:\Users\samua\source\repos\Library_WPF\bin\Debug\EntityFramework.dll
+C:\Users\samua\source\repos\Library_WPF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\samua\source\repos\Library_WPF\bin\Debug\EntityFramework.xml
+C:\Users\samua\source\repos\Library_WPF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\samua\source\repos\Library_WPF\obj\Debug\Library_WPF_Content.g.cs

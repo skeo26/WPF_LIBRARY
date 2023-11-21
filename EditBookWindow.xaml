@@ -20,7 +20,7 @@
             <TextBlock Text="Year:"/>
             <TextBox Text="{Binding EditedBook.Year, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5"/>
 
-            <Button Content="Apply Changes" Command="{Binding ApplyChangesCommand}"/>
+            <Button Content="Подтвердить изменения" Command="{Binding ApplyChangesCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

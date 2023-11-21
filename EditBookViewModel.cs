@@ -40,10 +40,10 @@ namespace Library_WPF
         {
             EditedBook = new Book
             {
-                Title = book.Title,
-                Author = book.Author,
-                Genre = book.Genre,
-                Year = book.Year
+                title = book.title,
+                author = book.author,
+                genre = book.genre,
+                year = book.year
             };
             BooksViewModel = booksViewModel;
             ApplyChangesCommand = new RelayCommand(ApplyChanges);

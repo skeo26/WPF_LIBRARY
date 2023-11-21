@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище books_dbModelContainer" CdmEntityContainer="books_dbEntities">
+    <EntitySetMapping Name="books_db">
+      <EntityTypeMapping TypeName="books_dbModel.books_db">
+        <MappingFragment StoreEntitySet="books_db">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="genre" ColumnName="genre" />
+          <ScalarProperty Name="year_of_publication" ColumnName="year_of_publication" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="books_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="books_db">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="author" />
+      <PropertyRef Name="title" />
+      <PropertyRef Name="genre" />
+      <PropertyRef Name="year_of_publication" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="genre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="year_of_publication" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="books_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="books_db" EntityType="Self.books_db" />
+  </EntityContainer>
+</Schema>

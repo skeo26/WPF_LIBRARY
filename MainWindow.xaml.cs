@@ -27,7 +27,9 @@ namespace Library_WPF
         public MainWindow()
         {
             InitializeComponent();
+            DataGrid_Books.ItemsSource = books_dbEntities.GetContext().books_db.ToList();
             Loaded += MainWindow_Loaded;
+            
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -37,7 +39,6 @@ namespace Library_WPF
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            // Создайте окно AddBookWindow и установите его владельцем текущее окно
             AddBookWindow addBookWindow = new AddBookWindow();
             addBookWindow.Owner = this;
 
@@ -48,10 +49,8 @@ namespace Library_WPF
         {
             if (DataContext is BooksViewModel viewModel)
             {
-                // Получите фактическую коллекцию данных (List<Book>)
                 var books = viewModel.Items.SourceCollection as List<Book>;
 
-                // Создайте диалоговое окно сохранения файла JSON
                 var saveFileDialog = new SaveFileDialog
                 {
                     Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
@@ -59,19 +58,13 @@ namespace Library_WPF
                     AddExtension = true,
                 };
 
-                // Если пользователь указал путь, сохраните файл
                 if (saveFileDialog.ShowDialog() == true)
                 {
-                    // Получите полный путь к файлу
                     string filePath = saveFileDialog.FileName;
 
-                    // Создайте директорию, если её нет
                     Directory.CreateDirectory(System.IO.Path.GetDirectoryName(filePath));
 
-                    // Сериализуйте список книг в формат JSON
                     string json = JsonConvert.SerializeObject(books, Formatting.Indented);
-
-                    // Сохраните JSON в выбранный файл
                     File.WriteAllText(filePath, json);
                 }
             }
@@ -81,10 +74,7 @@ namespace Library_WPF
         {
             if (DataContext is BooksViewModel viewModel)
             {
-                // Получите фактическую коллекцию данных (List<Book>)
                 var books = viewModel.Items.SourceCollection as List<Book>;
-
-                // Создайте диалоговое окно сохранения файла XML
                 var saveFileDialog = new SaveFileDialog
                 {
                     Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*",
@@ -92,19 +82,14 @@ namespace Library_WPF
                     AddExtension = true,
                 };
 
-                // Если пользователь указал путь, сохраните файл
                 if (saveFileDialog.ShowDialog() == true)
                 {
-                    // Получите полный путь к файлу
                     string filePath = saveFileDialog.FileName;
 
-                    // Создайте директорию, если её нет
                     Directory.CreateDirectory(System.IO.Path.GetDirectoryName(filePath));
 
-                    // Создайте объект XmlSerializer для типа List<Book>
                     System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<Book>));
 
-                    // Сохраните список книг в формат XML
                     using (FileStream stream = new FileStream(filePath, FileMode.Create))
                     {
                         serializer.Serialize(stream, books);

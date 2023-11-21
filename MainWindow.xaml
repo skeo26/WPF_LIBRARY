@@ -46,12 +46,12 @@
             <Button Content="Сохранить в JSON" Click="SaveToJson_Click" Margin="5" Background="LightSkyBlue" />
             <Button Content="Сохранить в XML" Click="SaveToXml_Click" Margin="5" Background="LightSkyBlue"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" Margin="0,24,0,0" ItemsSource="{Binding Items}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Style="{StaticResource CustomDataGridStyle}">
+        <DataGrid x:Name="DataGrid_Books" Grid.Row="1" Margin="0,24,0,0" ItemsSource="{Binding BooksDB}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Style="{StaticResource CustomDataGridStyle}" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
-                <DataGridTextColumn Header="Автор" Binding="{Binding Author}"/>
-                <DataGridTextColumn Header="Жанр" Binding="{Binding Genre}"/>
-                <DataGridTextColumn Header="Год" Binding="{Binding Year}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding title}"/>
+                <DataGridTextColumn Header="Автор" Binding="{Binding author}"/>
+                <DataGridTextColumn Header="Жанр" Binding="{Binding genre}"/>
+                <DataGridTextColumn Header="Год" Binding="{Binding year_of_publication}"/>
             </DataGrid.Columns>
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource CustomDataGridHeaderStyle}" />

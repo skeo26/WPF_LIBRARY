@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -8,7 +10,7 @@ namespace Library_WPF
 {
     public class BooksViewModel : DependencyObject
     {
-
+        public ObservableCollection<Book> BooksDB { get; set; }
         public string SearchText
         {
             get { return (string)GetValue(SearchTextProperty); }
@@ -41,7 +43,19 @@ namespace Library_WPF
 
         public BooksViewModel()
         {
-            Items = CollectionViewSource.GetDefaultView(Book.GetBooks());
+            using (var context = new books_dbEntities())
+            {
+                context.Database.Initialize(true);
+                BooksDB = new ObservableCollection<Book>(context.books_db.Select(b => new Book
+                {
+                    id = b.id,
+                    author = b.author,
+                    title = b.title,
+                    genre = b.genre,
+                    year = b.year_of_publication
+                }).ToList());
+            }
+            Items = CollectionViewSource.GetDefaultView(BooksDB);
             Items.Filter = SearchBook;
             AddBookCommand = new RelayCommand(AddNewBook);
             EditBookCommand = new RelayCommand(EditSelectedBook, CanEditSelectedBook);
@@ -52,7 +66,7 @@ namespace Library_WPF
         {
             bool searchingBook = true;
             Book currentBook = obj as Book;
-            if (!string.IsNullOrEmpty(SearchText) && currentBook != null && !currentBook.Title.Contains(SearchText))
+            if (!string.IsNullOrEmpty(SearchText) && currentBook != null && !currentBook.title.Contains(SearchText))
                 searchingBook = false;
             return searchingBook;
         }
@@ -66,7 +80,7 @@ namespace Library_WPF
 
         public void AddBook(Book newBook)
         {
-            var books = Items.SourceCollection as List<Book>;
+            var books = Items.SourceCollection as List<Book>; 
             books?.Add(newBook);
 
             Items.Refresh();
@@ -123,10 +137,10 @@ namespace Library_WPF
                 var currentBook = Items.CurrentItem as Book;
                 if (currentBook != null)
                 {
-                    currentBook.Title = editedBook.Title;
-                    currentBook.Author = editedBook.Author;
-                    currentBook.Genre = editedBook.Genre;
-                    currentBook.Year = editedBook.Year;
+                    currentBook.title = editedBook.title;
+                    currentBook.author = editedBook.author;
+                    currentBook.genre = editedBook.genre;
+                    currentBook.year = editedBook.year;
                 }
 
                 Items.Refresh();

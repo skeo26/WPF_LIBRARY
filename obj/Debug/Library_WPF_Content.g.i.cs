@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("grid.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("librarymodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("librarymodel.tt")]
 
 
